@@ -35,6 +35,9 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{ asset('assets/backend/css/themes/all-themes.css') }}" rel="stylesheet" />
 
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/backend/css/toastr.min.css') }}">
+
     <!-- PAGE WISE CSS -->
     @stack('css')
 
@@ -117,14 +120,29 @@
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="{{ asset('assets/backend/plugins/jquery-sparkline/jquery.sparkline.js') }}"></script>
-
+    @stack('js')
     <!-- Custom Js -->
     <script src="{{ asset('assets/backend/js/admin.js') }}"></script>
     <script src="{{ asset('assets/backend/js/pages/index.js') }}"></script>
 
     <!-- Demo Js -->
     <script src="{{ asset('assets/backend/js/demo.js') }}"></script>
+    <!-- TOASTR JS -->
+    <script src="{{ asset('assets/backend/js/toastr.min.js') }}"></script>
+    {!! Toastr::message() !!}
+
+
     <!-- PAGE WISE JS -->
-    @stack('js')
+    <script>
+        @if($errors->any())
+        @foreach($errors->all() as $error)
+        toastr.error('{{ $error }}','Error ! ',{
+            closeButton:true,
+            progressBar:true,
+        });
+        @endforeach
+        @endif
+    </script>
+
 </body>
 </html>

@@ -25,8 +25,8 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'v5.6.33',
-    'version' => '5.6.33.0',
+    'pretty_version' => '1.0.0+no-version-set',
+    'version' => '1.0.0.0',
     'aliases' => 
     array (
     ),
@@ -35,6 +35,15 @@ private static $installed = array (
   ),
   'versions' => 
   array (
+    'brian2694/laravel-toastr' => 
+    array (
+      'pretty_version' => '5.56',
+      'version' => '5.56.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '98137445f55d981f3587800349f1aa7b045d7974',
+    ),
     'cordoval/hamcrest-php' => 
     array (
       'replaced' => 
@@ -389,8 +398,8 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'v5.6.33',
-      'version' => '5.6.33.0',
+      'pretty_version' => '1.0.0+no-version-set',
+      'version' => '1.0.0.0',
       'aliases' => 
       array (
       ),
@@ -627,8 +636,8 @@ private static $installed = array (
     array (
       'provided' => 
       array (
-        0 => '1.0|2.0',
-        1 => '1.0.0',
+        0 => '1.0.0',
+        1 => '1.0|2.0',
       ),
     ),
     'psr/simple-cache' => 

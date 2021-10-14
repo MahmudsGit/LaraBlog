@@ -15,6 +15,8 @@
     <link href="{{ asset('assets/frontend/css/swiper.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/frontend/css/ionicons.css') }}" rel="stylesheet">
 
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/backend/css/toastr.min.css') }}">
     <!-- PAGE WISE CSS -->
     @stack('css')
 
@@ -31,7 +33,9 @@
     <script src="{{ asset('assets/frontend/js/tether.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/bootstrap.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/scripts.js') }}"></script>
-
+    <!-- TOASTR JS -->
+    <script src="{{ asset('assets/backend/js/toastr.min.js') }}"></script>
+    {!! Toastr::message() !!}
     <!-- PAGE WISE JS -->
     @stack('js')
 </body>
