@@ -43,17 +43,24 @@
             </li>
             <li class="{{ Request::is('admin/tag') ? 'active' : '' }} ">
                 <a href="{{ route('admin.tag.index') }}">
-                    <i class="material-icons">input</i>
+                    <i class="material-icons">label</i>
                     <span>Tag</span>
+                </a>
+            </li>
+
+            <li class="{{ Request::is('admin/category') ? 'active' : '' }} ">
+                <a href="{{ route('admin.category.index') }}">
+                    <i class="material-icons">apps</i>
+                    <span>Categories</span>
                 </a>
             </li>
             <li class="header">System</li>
             <li>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                   document.getElementById('logout-form').submit();">
                     <i class="material-icons">input</i>
-                    <span>Log Out</span>
+                    <span>Log Out</span> [p
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -73,7 +80,7 @@
             <li>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                   document.getElementById('logout-form').submit();">
                     <i class="material-icons">input</i>
                     <span>Log Out</span>
                 </a>

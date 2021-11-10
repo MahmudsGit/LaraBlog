@@ -131,7 +131,6 @@
     <script src="{{ asset('assets/backend/js/toastr.min.js') }}"></script>
     {!! Toastr::message() !!}
 
-
     <!-- PAGE WISE JS -->
     <script>
         @if($errors->any())

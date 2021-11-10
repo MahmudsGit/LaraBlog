@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 
-@section('title','Tag')
+@section('title','Add Tag')
 
 @push('css')
     <!-- JQuery DataTable Css -->
@@ -26,7 +26,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" id="name" name="name" class="form-control">
-                                        <label class="form-label">Tag</label>
+                                        <label class="form-label">Tag Name</label>
                                     </div>
                                 </div>
 
