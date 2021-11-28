@@ -27,6 +27,7 @@
                         <div class="header">
                             <h2>
                                 CATEGORIES TABLE
+                                <span class="badge bg-blue-grey">{{ $categories->count() }}</span>
                             </h2>
                         </div>
                         <div class="body">
@@ -37,18 +38,21 @@
                                         <th>Id</th>
                                         <th>categories Name</th>
                                         <th>Slug</th>
+                                        <th>Picture</th>
+                                        <th>Posts Count</th>
                                         <th>Crated</th>
                                         <th>Updated</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @php($i = 1)
                                     @foreach($categories as $key=>$category)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->slug }}</td>
+                                        <td><img src="{{ asset('storage/category').'/' }}{{ $category->image }}" width="80px" height="50" alt=""></td>
+                                        <td>{{ $category->posts->count() }}</td>
                                         <td>{{ $category->created_at }}</td>
                                         <td>{{ $category->updated_at }}</td>
                                         <td>

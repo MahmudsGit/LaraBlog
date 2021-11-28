@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 
-@section('title','Add Category')
+@section('title','Add Post')
 
 @push('css')
     <!-- JQuery DataTable Css -->
@@ -17,27 +17,33 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Create New Category
+                                Create New Post
                             </h2>
                         </div>
                         <div class="body">
-                            <form action="{{ route('admin.category.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('admin.post.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" id="name" name="name" class="form-control">
-                                        <label class="form-label">Category Name</label>
+                                        <input type="text" id="name" name="title" class="form-control">
+                                        <label class="form-label">Title</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="file" id="name" name="image" class="form-control">
+                                        <input type="file" id="image" name="image" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea id="body" name="body" class="form-control"></textarea>
+                                        <label class="form-label">Body</label>
                                     </div>
                                 </div>
 
                                 <br>
-                                <a href="{{ route('admin.category.index') }}"  class="btn btn-primary m-t-15 waves-effect">Back</a>
-                                <input type="submit" class="btn btn-success m-t-15 waves-effect" value="Save Category">
+                                <a href="{{ route('admin.post.index') }}"  class="btn btn-primary m-t-15 waves-effect">Back</a>
+                                <input type="submit" class="btn btn-success m-t-15 waves-effect" value="Save Post">
                             </form>
                         </div>
                     </div>

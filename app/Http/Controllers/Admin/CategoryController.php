@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\category;
+use App\Category;
+use Brian2694\Toastr\Facades\Toastr;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Image;
 
 class CategoryController extends Controller
 {
@@ -15,7 +19,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = category::latest()->get();
+        $categories = Category::latest()->get();
         return view('admin.category.index',compact('categories'));
     }
 
@@ -39,8 +43,41 @@ class CategoryController extends Controller
     {
         $this->validate($request, [
             'name'=>'required|unique:categories',
-            'image'=>'required|mimes:jpg,JPG,bmp,png,PNG'
+            'image'=>'required|mimes:jpg,jpeg,bmp,png'
         ]);
+
+        $image = $request->file('image');
+        $slug = str_slug($request->name);
+        if (isset($image)){
+
+            $currentDate = Carbon::now()->toDateString();
+            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+
+            if (!Storage::disk('public')->exists('category')){
+                Storage::disk('public')->makeDirectory('category');
+            }
+
+            $categoryImage = Image::make($image)->resize(1600,480)->save($imageName);
+            Storage::disk('public')->put('category/'.$imageName,$categoryImage);
+
+            if (!Storage::disk('public')->exists('category/slider')){
+                Storage::disk('public')->makeDirectory('category/slider');
+            }
+            $sliderImage = Image::make($image)->resize(500,333)->save($imageName);
+            Storage::disk('public')->put('category/slider/'.$imageName,$sliderImage);
+        }else{
+            $imageName = 'default.png';
+        }
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->slug = $slug;
+        $category->image = $imageName;
+        $category->save();
+
+        Toastr::success('Category Successfully Saved!','Success');
+        return redirect()->route('admin.category.index');
+
     }
 
     /**
@@ -62,7 +99,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.category.edit',compact('category'));
     }
 
     /**
@@ -74,7 +112,56 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request, [
+            'name'=>'required',
+            'image'=>'mimes:jpg,jpeg,bmp,png'
+        ]);
+
+        $category = Category::find($id);
+
+        $image = $request->file('image');
+        $slug = str_slug($request->name);
+        if (isset($image)){
+
+            $currentDate = Carbon::now()->toDateString();
+            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+
+            if (!Storage::disk('public')->exists('category')){
+                Storage::disk('public')->makeDirectory('category');
+            }
+
+            if (Storage::disk('public')->exists('category/'.$category->image));{
+                Storage::disk('public')->delete('category/'.$category->image);
+            }
+
+            $categoryImage = Image::make($image)->resize(1600,480)->save($imageName);
+            Storage::disk('public')->put('category/'.$imageName,$categoryImage);
+
+            if (!Storage::disk('public')->exists('category/slider')){
+                Storage::disk('public')->makeDirectory('category/slider');
+            }
+
+            if (Storage::disk('public')->exists('category/slider/'.$category->image));{
+                Storage::disk('public')->delete('category/slider/'.$category->image);
+            }
+
+            $sliderImage = Image::make($image)->resize(500,333)->save($imageName);
+            Storage::disk('public')->put('category/slider/'.$imageName,$sliderImage);
+        }else{
+            $imageName = $category->image;
+        }
+
+        $category->name = $request->name;
+        $category->slug = $slug;
+        $category->image = $imageName;
+        $category->save();
+
+        Toastr::success('Category Successfully Updated!','Success');
+        return redirect()->route('admin.category.index');
+
+
+
     }
 
     /**
@@ -85,6 +172,18 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+
+        if (Storage::disk('public')->exists('category/'.$category->image));{
+        Storage::disk('public')->delete('category/'.$category->image);
+        }
+        if (Storage::disk('public')->exists('category/slider/'.$category->image));{
+        Storage::disk('public')->delete('category/slider/'.$category->image);
+        }
+        $category->delete();
+
+        Toastr::success('Category Deleted Successfully!','Success');
+        return redirect()->back();
+
     }
 }

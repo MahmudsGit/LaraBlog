@@ -82,7 +82,7 @@
 
 			target[fragments[fragments.length - 1]] = modules[id];
 		}
-		
+
 		// Expose private modules for unit tests
 		if (exports.AMDLC_TESTS) {
 			privateModules = exports.privateModules || {};
@@ -14592,7 +14592,7 @@ define("tinymce/dom/Serializer", [
 					args.content = args.content.replace(/\uFEFF/g, '');
 				}
 
-				// Post process
+				// post process
 				if (!args.no_events) {
 					self.onPostProcess(args);
 				}
@@ -27678,7 +27678,7 @@ define("tinymce/ui/Control", [
 		},
 
 		/**
-		 * Post render method. Called after the control has been rendered to the target.
+		 * post render method. Called after the control has been rendered to the target.
 		 *
 		 * @method postRender
 		 * @return {tinymce.ui.Control} Current control instance.
@@ -29033,7 +29033,7 @@ define("tinymce/ui/Container", [
 		},
 
 		/**
-		 * Post render method. Called after the control has been rendered to the target.
+		 * post render method. Called after the control has been rendered to the target.
 		 *
 		 * @method postRender
 		 * @return {tinymce.ui.Container} Current combobox instance.
@@ -41738,7 +41738,7 @@ define("tinymce/ui/ComboBox", [
 		},
 
 		/**
-		 * Post render method. Called after the control has been rendered to the target.
+		 * post render method. Called after the control has been rendered to the target.
 		 *
 		 * @method postRender
 		 * @return {tinymce.ui.ComboBox} Current combobox instance.
@@ -42771,7 +42771,7 @@ define("tinymce/ui/ElementPath", [
 ], function(Path) {
 	return Path.extend({
 		/**
-		 * Post render method. Called after the control has been rendered to the target.
+		 * post render method. Called after the control has been rendered to the target.
 		 *
 		 * @method postRender
 		 * @return {tinymce.ui.ElementPath} Current combobox instance.
@@ -42997,7 +42997,7 @@ define("tinymce/ui/Form", [
 		},
 
 		/**
-		 * Post render method. Called after the control has been rendered to the target.
+		 * post render method. Called after the control has been rendered to the target.
 		 *
 		 * @method postRender
 		 * @return {tinymce.ui.ComboBox} Current combobox instance.
