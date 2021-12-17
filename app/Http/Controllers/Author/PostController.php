@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Author;
 
 use App\Category;
 use App\Post;
@@ -22,8 +22,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->get();
-        return view('admin.post.index',compact('posts'));
+        $posts = Auth::user()->posts()->latest()->get();
+        return view('author.post.index',compact('posts'));
     }
 
     /**
@@ -35,7 +35,7 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('admin.post.create', compact('categories','tags'));
+        return view('author.post.create', compact('categories','tags'));
     }
 
     /**
@@ -47,11 +47,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-          'title' => 'required',
-          'image' => 'required|mimes:jpg,png,jpeg,bmp',
-          'categories' => 'required',
-          'tags' => 'required',
-          'body' => 'required'
+            'title' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg,bmp',
+            'categories' => 'required',
+            'tags' => 'required',
+            'body' => 'required'
         ]);
 
         $image = $request->file('image');
@@ -79,14 +79,14 @@ class PostController extends Controller
         }else{
             $post->status = false;
         }
-        $post->	is_approved = true;
+        $post->	is_approved = false;
         $post->save();
 
         $post->categories()->attach($request->categories);
         $post->tags()->attach($request->tags);
 
         Toastr::success('Post Save Success','Success');
-        return redirect()->route('admin.post.index');
+        return redirect()->route('author.post.index');
     }
 
     /**
@@ -97,7 +97,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('admin.post.show',compact('post'));
+        if ($post->user_id != Auth::id()){
+            Toastr::error('You Are not Authorized !!','Error');
+            return redirect()->back();
+        }
+        return view('author.post.show',compact('post'));
     }
 
     /**
@@ -108,9 +112,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        if ($post->user_id != Auth::id()){
+            Toastr::error('You Are not Authorized !!','Error');
+            return redirect()->back();
+        }
         $categories = Category::all();
         $tags = Tag::all();
-        return view('admin.post.edit', compact('post','categories','tags'));
+        return view('author.post.edit', compact('post','categories','tags'));
     }
 
     /**
@@ -122,6 +130,10 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        if ($post->user_id != Auth::id()){
+            Toastr::error('You Are not Authorized !!','Error');
+            return redirect()->back();
+        }
         $this->validate($request,[
             'title' => 'required',
             'image' => 'mimes:jpg,png,jpeg,bmp',
@@ -158,31 +170,15 @@ class PostController extends Controller
         }else{
             $post->status = false;
         }
-        $post->	is_approved = true;
+        $post->	is_approved = false;
         $post->save();
 
         $post->categories()->sync($request->categories);
         $post->tags()->sync($request->tags);
 
         Toastr::success('Post Updated Success','Success');
-        return redirect()->route('admin.post.index');
+        return redirect()->route('author.post.index');
     }
-
-    public function pending()
-    {
-        $posts = Post::where('is_approved', false)->get();
-        return view('admin.post.pending',compact('posts'));
-    }
-    public function approve($id)
-    {
-        $post = Post::find($id);
-        if ($post->is_approved == false){
-            $post->is_approved = true;
-            $post->save();
-        }
-        return redirect()->back();
-    }
-
 
     /**
      * Remove the specified resource from storage.
@@ -192,6 +188,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if ($post->user_id != Auth::id()){
+            Toastr::error('You Are not Authorized !!','Error');
+            return redirect()->back();
+        }
         if (Storage::disk('public')->exists('post/'.$post->image)){
             Storage::disk('public')->delete('post/'.$post->image);
         }
@@ -202,5 +202,4 @@ class PostController extends Controller
         Toastr::success('Post Deleted Successfully!','Success');
         return redirect()->back();
     }
-
 }

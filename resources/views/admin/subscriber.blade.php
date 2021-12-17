@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 
-@section('title','Categories')
+@section('title','posts')
 
 @push('css')
 
@@ -13,12 +13,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <a href="{{ route('admin.category.create') }}" class="btn btn-success">
-                    <span>Add New Category</span>
-                    <i class="material-icons">add</i>
-                </a>
-            </div>
+
 
             <!-- Exportable Table -->
             <div class="row clearfix">
@@ -26,8 +21,8 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                CATEGORIES TABLE
-                                <span class="badge bg-blue-grey">{{ $categories->count() }}</span>
+                                Subscribers Table
+                                <span class="badge bg-blue-grey">{{ $subscribers->count() }}</span>
                             </h2>
                         </div>
                         <div class="body">
@@ -36,36 +31,29 @@
                                     <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>categories Name</th>
-                                        <th>Slug</th>
-                                        <th>Picture</th>
-                                        <th>Posts Count</th>
+                                        <th>Email</th>
                                         <th>Created</th>
                                         <th>Updated</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($categories as $key=>$category)
+                                    @foreach($subscribers as $key=>$subscriber)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $category->name }}</td>
-                                        <td>{{ $category->slug }}</td>
-                                        <td><img src="{{ asset('storage/category').'/' }}{{ $category->image }}" width="50px" height="30px" alt=""></td>
-                                        <td>{{ $category->posts->count() }}</td>
-                                        <td>{{ $category->created_at->toFormattedDateString() }}</td>
-                                        <td>{{ $category->updated_at->toFormattedDateString() }}</td>
+                                        <td>{{ $subscriber->email }}</td>
+                                        <td>{{ $subscriber->created_at->toFormattedDateString() }}</td>
+                                        <td>{{ $subscriber->updated_at->toFormattedDateString() }}</td>
                                         <td>
-                                            <a href="{{ route('admin.category.edit',$category->id) }}" class="btn btn-xs btn-info waves-effect" >
-                                                <i class="material-icons">edit</i>
-                                            </a>
-                                            <button type="button" class="btn btn-xs btn-danger waves-effect" onclick="deleteCategory({{ $category->id }})">
+
+                                            <button type="button" class="btn btn-xs btn-danger waves-effect" onclick="deleteSubscriber({{ $subscriber->id }})">
                                                 <i class="material-icons">delete</i>
                                             </button>
-                                            <form id="delete-form-{{$category->id}}" action="{{ route('admin.category.destroy',$category->id) }}" method="POST" style="display: none">
+                                            <form id="delete-form-{{$subscriber->id}}" action="{{ route('admin.subscriber.destroy',$subscriber->id) }}" method="POST" style="display: none">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
+
                                         </td>
                                     </tr>
                                     @endforeach
@@ -99,7 +87,7 @@
     <script src="{{ asset('assets/backend/js/pages/tables/jquery-datatable.js') }}"></script>
     <script src="{{ asset('assets/backend/js/sweetalert2.js') }}"></script>
     <script type="text/javascript">
-        function deleteCategory(id) {
+        function deleteSubscriber(id) {
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',

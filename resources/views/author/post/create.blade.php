@@ -13,21 +13,20 @@
 
     <section class="content">
         <div class="container-fluid">
-            <form action="{{ route('admin.post.update',$post->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('author.post.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
                 <div class="row clearfix">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Update Post
+                                    Create New Post
                                 </h2>
                             </div>
                             <div class="body">
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" id="title" name="title" class="form-control" value="{{ $post->title }}">
+                                        <input type="text" id="title" name="title" class="form-control">
                                         <label class="form-label">Title</label>
                                     </div>
                                 </div>
@@ -38,8 +37,7 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="checkbox" name="status" id="basic_checkbox_1" value="1"
-                                            {{ $post->status == true ? 'checked' : '' }} />
+                                        <input type="checkbox" name="status" id="basic_checkbox_1" value="1" checked />
                                         <label for="basic_checkbox_1" ><span class="badge bg-blue-grey"> Publish </span></label>
                                     </div>
                                 </div>
@@ -47,8 +45,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="header">
+                        <div class="card"><div class="header">
                                 <h2>
                                     Categories & Tags
                                 </h2>
@@ -59,11 +56,7 @@
                                         <label for="categories">Select Category</label>
                                         <select class="form-control show-tick" name="categories[]"  multiple data-selected-text-format="count">
                                             @foreach($categories as $category)
-                                                <option
-                                                    @foreach($post->categories as $categoryPost)
-                                                        {{ $categoryPost->id == $category->id ? 'selected' : '' }}
-                                                    @endforeach
-                                                    value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -73,11 +66,7 @@
                                         <label for="tags">Select Tag</label>
                                         <select class="form-control show-tick" name="tags[]" multiple data-selected-text-format="count">
                                             @foreach($tags as $tag)
-                                                <option
-                                                    @foreach($post->tags as $postTag)
-                                                        {{ $postTag->id == $tag->id ? 'selected' : '' }}
-                                                    @endforeach
-                                                    value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -97,10 +86,10 @@
                             <div class="body">
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <textarea id="tinymce" name="body" class="form-control">{{ $post->body }}</textarea>
+                                        <textarea id="tinymce" name="body" class="form-control"></textarea>
                                     </div>
                                 </div>
-                                <a href="{{ route('admin.post.index') }}"  class="btn btn-primary m-t-15 waves-effect">Back</a>
+                                <a href="{{ route('author.post.index') }}"  class="btn btn-primary m-t-15 waves-effect">Back</a>
                                 <input type="submit" class="btn btn-success m-t-15 waves-effect" value="Save Post">
                             </div>
                         </div>

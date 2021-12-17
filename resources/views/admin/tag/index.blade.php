@@ -39,7 +39,7 @@
                                         <th>Tag Name</th>
                                         <th>Slug</th>
                                         <th>Posts Count</th>
-                                        <th>Crated</th>
+                                        <th>Created</th>
                                         <th>Updated</th>
                                         <th>Action</th>
                                     </tr>
@@ -52,13 +52,13 @@
                                         <td>{{ $tag->name }}</td>
                                         <td>{{ $tag->slug }}</td>
                                         <td>{{ $tag->posts->count() }}</td>
-                                        <td>{{ $tag->created_at }}</td>
-                                        <td>{{ $tag->updated_at }}</td>
+                                        <td>{{ $tag->created_at->toFormattedDateString() }}</td>
+                                        <td>{{ $tag->updated_at->toFormattedDateString() }}</td>
                                         <td>
-                                            <a href="{{ route('admin.tag.edit',$tag->id) }}" class="btn btn-info waves-effect" >
+                                            <a href="{{ route('admin.tag.edit',$tag->id) }}" class="btn btn-xs btn-info waves-effect" >
                                                 <i class="material-icons">edit</i>
                                             </a>
-                                            <button type="button" class="btn btn-danger waves-effect" onclick="deleteTag({{ $tag->id }})">
+                                            <button type="button" class="btn btn-xs btn-danger waves-effect" onclick="deleteTag({{ $tag->id }})">
                                                 <i class="material-icons">delete</i>
                                             </button>
                                             <form id="delete-form-{{$tag->id}}" action="{{ route('admin.tag.destroy',$tag->id) }}" method="POST" style="display: none">

@@ -13,7 +13,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <form action="{{ route('admin.post.update',$post->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('author.post.update',$post->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row clearfix">
@@ -100,7 +100,7 @@
                                         <textarea id="tinymce" name="body" class="form-control">{{ $post->body }}</textarea>
                                     </div>
                                 </div>
-                                <a href="{{ route('admin.post.index') }}"  class="btn btn-primary m-t-15 waves-effect">Back</a>
+                                <a href="{{ route('author.post.index') }}"  class="btn btn-primary m-t-15 waves-effect">Back</a>
                                 <input type="submit" class="btn btn-success m-t-15 waves-effect" value="Save Post">
                             </div>
                         </div>

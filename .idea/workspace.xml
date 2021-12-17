@@ -20,41 +20,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2106dfa5-b0b6-462a-8d04-51687b20249c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_20_102216_create_posts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_20_103049_create_category_post_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_20_103107_create_post_tag_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/adfdf-2021-11-19-6197ab5ae6099.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/adgadgeg-fadf-2021-11-19-6197ac302f6b6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/dadg-2021-11-19-6197a85c914a2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/laravel-2021-11-20-6198792a3a2e6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/laravel-2021-11-20-61987cfa1b30c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/laravel-2021-11-24-619e4061724d7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/php-2021-11-20-61987d07d06b9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/php-2021-11-24-619e44205202a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SubscriberController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Author/PostController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SubscriberController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Subscriber.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_01_082104_create_subscribers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/adadgagag-2021-11-30-61a5c6b3a032c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/author-check-2021-11-30-61a662784c2af.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/author-post-one-2021-11-30-61a5c5182e52f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/delete-post-2021-11-29-61a456b91ec12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/delete-post-2021-11-29-61a457d2ec437.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/more-post-one-2021-11-28-61a3cf7994e54.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/more-post-one-2021-11-29-61a4dc05e865f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/new-post-2021-11-28-61a3cebf77972.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/new-post-updated-2021-11-29-61a450788109d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/pending.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/subscriber.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/author/post/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/author/post/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/author/post/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/author/post/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Tag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/backend/plugins/ckeditor/lang/eo.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/backend/plugins/ckeditor/lang/eo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/backend/plugins/tinymce/tinymce.jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/backend/plugins/tinymce/tinymce.jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/backend/plugins/tinymce/tinymce.jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/backend/plugins/tinymce/tinymce.jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/backend/plugins/tinymce/tinymce.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/backend/plugins/tinymce/tinymce.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/backend/js/pages/forms/editors.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/backend/js/pages/forms/editors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/category/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/category/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tag/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tag/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tag/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tag/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/tag/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tag/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/backend/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/backend/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/backend/partials/leftsidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/backend/partials/leftsidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend/partials/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -185,10 +189,11 @@
       <recent name="C:\xampp\htdocs\LaraBlog\app\Http\Controllers\Admin" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\LaraBlog\resources\views\admin\" />
+      <recent name="C:\xampp\htdocs\LaraBlog\resources\views\admin\post" />
+      <recent name="C:\xampp\htdocs\LaraBlog\resources\views\author" />
       <recent name="C:\xampp\htdocs\LaraBlog\resources\views\admin" />
       <recent name="C:\xampp\htdocs\LaraBlog\resources\views\admin\tag" />
-      <recent name="C:\xampp\htdocs\LaraBlog\resources\views\layouts\backend" />
-      <recent name="C:\xampp\htdocs\LaraBlog\resources\views\author" />
     </key>
   </component>
   <component name="RunManager">
@@ -249,6 +254,13 @@
       <workItem from="1637821156523" duration="774000" />
       <workItem from="1637860472744" duration="3864000" />
       <workItem from="1637903490903" duration="598000" />
+      <workItem from="1638093675921" duration="16585000" />
+      <workItem from="1638152428367" duration="11737000" />
+      <workItem from="1638192207595" duration="3246000" />
+      <workItem from="1638247592762" duration="4085000" />
+      <workItem from="1638285361737" duration="9812000" />
+      <workItem from="1638339208221" duration="5382000" />
+      <workItem from="1638623073362" duration="597000" />
     </task>
     <servers />
   </component>
@@ -271,18 +283,22 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="444" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1637863723114">
+    <state x="219" y="117" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1638348326499">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="444" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/62.0.1304.768@62.0.1304.768" timestamp="1637863723114" />
-    <state x="494" y="137" key="FileChooserDialogImpl" timestamp="1637225992972">
+    <state x="219" y="117" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/62.0.1304.768@62.0.1304.768" timestamp="1638348326499" />
+    <state x="494" y="137" key="FileChooserDialogImpl" timestamp="1638122604566">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="494" y="137" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1637225992972" />
+    <state x="494" y="137" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1638122604566" />
     <state x="549" y="306" key="NewPhpFileDialog" timestamp="1634106609974">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="549" y="306" key="NewPhpFileDialog/62.0.1304.768@62.0.1304.768" timestamp="1634106609974" />
+    <state x="523" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1638288976702">
+      <screen x="62" y="0" width="1304" height="768" />
+    </state>
+    <state x="523" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/62.0.1304.768@62.0.1304.768" timestamp="1638288976702" />
     <state x="377" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1637861861972">
       <screen x="62" y="0" width="1304" height="768" />
     </state>

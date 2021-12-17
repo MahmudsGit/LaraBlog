@@ -36,6 +36,16 @@
     <!-- TOASTR JS -->
     <script src="{{ asset('assets/backend/js/toastr.min.js') }}"></script>
     {!! Toastr::message() !!}
+    <script>
+        @if($errors->any())
+        @foreach($errors->all() as $error)
+        toastr.error('{{ $error }}','Error ! ',{
+            closeButton:true,
+            progressBar:true,
+        });
+        @endforeach
+        @endif
+    </script>
     <!-- PAGE WISE JS -->
     @stack('js')
 </body>

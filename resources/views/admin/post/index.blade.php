@@ -37,12 +37,12 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Title</th>
+                                        <th>Author</th>
                                         <th>Picture</th>
-                                        <th>View Count</th>
+                                        <th>Views</th>
                                         <th>Status</th>
                                         <th>Approved</th>
-                                        <th>Crated</th>
-                                        <th>Updated</th>
+                                        <th>Created</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -50,8 +50,11 @@
                                     @foreach($posts as $key=>$post)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $post->title }}</td>
-                                        <td>{{ $post->image }}</td>
+                                        <td>{{ str_limit($post->title,10) }}</td>
+                                        <td>{{ $post->user->name }}</td>
+                                        <td>
+                                            <img src="{{ asset('storage/post').'/' }}{{ $post->image }}" height="30px" width="50px" alt="">
+                                        </td>
                                         <td>{{ $post->view_count }}</td>
                                         <td>
                                             @if($post->status == true)
@@ -66,13 +69,15 @@
                                             @else
                                                 <span class="badge bg-cyan">Pending</span>
                                             @endif
-                                        <td>{{ $post->created_at }}</td>
-                                        <td>{{ $post->updated_at }}</td>
+                                        <td>{{ $post->created_at->toFormattedDateString() }}</td>
                                         <td>
-                                            <a href="{{ route('admin.post.edit',$post->id) }}" class="btn btn-info waves-effect" >
+                                            <a href="{{ route('admin.post.show',$post->id) }}" class="btn btn-xs btn-success waves-effect" >
+                                                <i class="material-icons">visibility</i>
+                                            </a>
+                                            <a href="{{ route('admin.post.edit',$post->id) }}" class="btn btn-xs btn-info waves-effect" >
                                                 <i class="material-icons">edit</i>
                                             </a>
-                                            <button type="button" class="btn btn-danger waves-effect" onclick="deletepost({{ $post->id }})">
+                                            <button type="button" class="btn btn-xs btn-danger waves-effect" onclick="deletepost({{ $post->id }})">
                                                 <i class="material-icons">delete</i>
                                             </button>
                                             <form id="delete-form-{{$post->id}}" action="{{ route('admin.post.destroy',$post->id) }}" method="POST" style="display: none">
